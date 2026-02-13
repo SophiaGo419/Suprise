@@ -4,15 +4,7 @@ function goToPage(pageId) {
     document.getElementById(pageId).classList.add('active');
 }
 
-// NO button evasion
-const noBtn = document.getElementById('noBtn');
-noBtn.addEventListener('mouseenter', () => {
-    const x = Math.random() * 70 + 10; // random X%
-    const y = Math.random() * 70 + 10; // random Y%
-    noBtn.style.position = 'absolute';
-    noBtn.style.top = y + '%';
-    noBtn.style.left = x + '%';
-});
+
 
 // YES button celebration
 document.getElementById('yesBtn').addEventListener('click', () => {
@@ -20,9 +12,11 @@ document.getElementById('yesBtn').addEventListener('click', () => {
 });
 
 // NO button click leads to pouty page
+const noBtn = document.getElementById('noBtn');
+
 noBtn.addEventListener('click', () => {
     goToPage('pouty');
-});
+});;
 
 // Page navigation
 function goToPage(pageId) {
