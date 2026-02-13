@@ -49,11 +49,47 @@ button:hover {
     background-color: #ff4757;
 }
 
-.gallery {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  margin-bottom: 20px;
+}
+
+.moment {
+  text-align: center;
+}
+
+.moment img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.scrollBtn {
+  margin-top: 5px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: #ff6b81;
+  color: white;
+}
+
+.scrollBtn:hover {
+  background-color: #ff4757;
+}
+
+.moment-description {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #333;
+  display: none;
 }
 
 .options {
@@ -492,4 +528,64 @@ button:hover {
     .flip-gallery {
         grid-template-columns: 1fr;
     }
+}
+
+body, .page {
+    margin: 0;
+    padding: 0;
+}
+
+.celebration-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+
+}
+
+.celebration-text {
+    font-size: 3rem;
+    color: #ff2d95;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ffb6b9, 0 0 25px #ff6b81;
+}
+
+.bouquet img {
+    width: 250px;
+    max-width: 80%;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0;
+    animation-name: floatHeart;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+}
+
+@keyframes floatHeart {
+    0% { transform: translate(0,0) scale(0.5) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    50% { transform: translate(var(--x), var(--y)) scale(1.2) rotate(180deg); opacity: 0.9; }
+    100% { transform: translate(var(--x), var(--y)) scale(0.5) rotate(360deg); opacity: 0; }
 }

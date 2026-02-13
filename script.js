@@ -157,3 +157,50 @@ flipCards.forEach(card => {
         card.classList.toggle('flipped');
     });
 });
+
+// Create confetti hearts
+const heartContainer = document.querySelector('.heart-container');
+
+// Function to create a single floating heart
+function createHeart() {
+    const heart = document.createElement('span');
+    heart.classList.add('heart');
+    heart.textContent = '❤️'; // only one heart emoji
+
+    // Random start position anywhere on screen
+    const startX = Math.random() * window.innerWidth;
+    const startY = Math.random() * window.innerHeight;
+
+    heart.style.left = startX + 'px';
+    heart.style.top = startY + 'px';
+
+    // Random floating distance
+    heart.style.setProperty('--x', (Math.random() * 400 - 200) + 'px'); // left/right movement
+    heart.style.setProperty('--y', -(Math.random() * 400 + 200) + 'px'); // upward movement
+
+    // Random size & **faster duration**
+    heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+    heart.style.animationDuration = (Math.random() * 2 + 2) + 's'; // shorter duration = faster float
+
+    heartContainer.appendChild(heart);
+
+    // Remove after animation
+    setTimeout(() => heart.remove(), 4000); // matches faster duration
+}
+
+// Continuously create hearts one by one
+setInterval(createHeart, 500); // slightly faster creation rate
+
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollButtons = document.querySelectorAll('.scrollBtn');
+
+  scrollButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const description = button.nextElementSibling;
+      if (description) {
+        description.style.display = 'block'; // show description
+        button.style.display = 'none'; // hide the arrow button
+      }
+    });
+  });
+});
