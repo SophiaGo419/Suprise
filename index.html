@@ -32,7 +32,7 @@
 
 
 <!-- PAGE 3: BOXES OPTIONS -->
-<section id="boxes" class="page active">
+<section id="boxes" class="page">
     <div class="container">
         <h1>Choose Your Surprise Box 📦</h1>
         <div class="options">
@@ -76,9 +76,12 @@
 <section id="video" class="page">
     <div class="container">
         <h1>Video Surprise 🎬</h1>
-        <video controls>
-            <source src="your-video.mp4" type="video/mp4">
-        </video>
+        <div class="video-wrapper">
+            <video id="surpriseVideo" controls loop>
+                <source src="Tadhana.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
         <button class="back-btn" onclick="goBackToBoxes()">🔙 Back to Boxes</button>
     </div>
 </section>
@@ -86,11 +89,82 @@
 <!-- PICTURES OPTION PAGE -->
 <section id="pictures" class="page">
     <div class="container">
-        <h1>Our Baby Pictures 🍼</h1>
-        <div class="gallery">
-            <img src="https://via.placeholder.com/200x200?text=Baby1" alt="Baby 1">
-            <img src="https://via.placeholder.com/200x200?text=Baby2" alt="Baby 2">
+        <h1>Flip each picture to discover treasures 🐾</h1>
+
+        <div class="flip-gallery">
+            <!-- Picture 1 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="I.png" alt="Baby 1">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>I</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Picture 2 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Love.png" alt="Baby 2">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Love</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Picture 3 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="You.png" alt="Baby 3">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>You</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Picture 4 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="So.png" alt="Baby 4">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>So</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Picture 5 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Much.png" alt="Baby 5">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Much</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Picture 6 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Heart.png" alt="Baby 6">
+                    </div>
+                    <div class="flip-card-back">
+                        <p>  ❤️   </p>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <button class="back-btn" onclick="goBackToBoxes()">🔙 Back to Boxes</button>
     </div>
 </section>
@@ -127,13 +201,15 @@
     <div class="container">
         <h1>You really said no? 🥺💔</h1>
 
-        <div class="pouty-cat">
-            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdpeGJsNGRidjZiczUwbWVuZ2w1bmg5MHBxM3g4bnQ4MGZhd2djYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zZbf6UpZslp3nvFjIR/giphy.gif" alt="Pouty Pleading Cat">
+        <!-- First pleading cat GIF already visible -->
+        <div class="pouty-cat" id="poutyCatContainer">
+            <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif" alt="Pouty Pleading Cat">
             <p class="pout-text">Please… reconsider? I brought my cutest face... 🐾🥺</p>
         </div>
 
-        <div class="retry-buttons">
-            <button onclick="goToPage('valentine')">Okay okay… ask me again 😭</button>
+        <div class="pout-buttons">
+            <button id="poutyYesBtn">YES</button>
+            <button id="poutyNoBtn">NO</button>
         </div>
     </div>
 </section>

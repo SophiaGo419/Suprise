@@ -18,6 +18,42 @@ noBtn.addEventListener('click', () => {
     goToPage('pouty');
 });;
 
+// Counter for second NO clicks
+let poutyNoClickCount = 1; // Start at 1 since the first GIF is already shown
+
+const poutyNoBtn = document.getElementById('poutyNoBtn');
+const poutyYesBtn = document.getElementById('poutyYesBtn');
+const poutyCatContainer = document.getElementById('poutyCatContainer');
+
+poutyYesBtn.addEventListener('click', () => {
+    goToPage('celebration');
+});
+
+poutyNoBtn.addEventListener('click', () => {
+    poutyNoClickCount++;
+
+    if (poutyNoClickCount === 2) {
+        // Second NO click → Cute angry cat
+        poutyCatContainer.innerHTML = `
+            <img src="https://media.giphy.com/media/12XMGIWtrHBl5e/giphy.gif" alt="Cute Angry Cat">
+            <p class="pout-text">😾 Okay… now I'm a little mad! But still cute!</p>
+        `;
+    } else if (poutyNoClickCount === 3) {
+        // Third NO click → Dramatic pouty cat + NO flies away
+        poutyCatContainer.innerHTML = `
+            <img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif" alt="Dramatic Pouty Cat">
+            <p class="pout-text">😭 This is my last attempt… I’m heartbroken!</p>
+        `;
+
+        // Fly away NO button
+        setTimeout(() => {
+            poutyNoBtn.style.animation = 'flyAway 1s forwards';
+            poutyNoBtn.style.pointerEvents = 'none';
+        }, 500);
+    }
+});
+
+
 // Page navigation
 function goToPage(pageId) {
     document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
@@ -88,3 +124,36 @@ if (envelope) {
     }, 1000); // matches flap/fade duration
   });
 }
+
+// Play video automatically with sound when navigating to video page
+function playVideoOnPageLoad(pageId) {
+    if (pageId === 'video') {
+        const video = document.getElementById('surpriseVideo');
+        if (video) {
+            video.muted = false; // ensure sound is on
+            video.play().catch(err => {
+                // Some browsers may still block autoplay
+                console.log('Autoplay failed:', err);
+            });
+        }
+    }
+}
+
+// Hook into goToPage
+function goToPage(pageId) {
+    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+    const page = document.getElementById(pageId);
+    page.classList.add('active');
+
+    // Trigger video autoplay with sound if it's the video page
+    playVideoOnPageLoad(pageId);
+}
+
+// Flip each card individually on click
+const flipCards = document.querySelectorAll('.flip-card');
+
+flipCards.forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+    });
+});
