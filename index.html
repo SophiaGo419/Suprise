@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Proposal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- PAGE 1: HOME -->
+<section id="home" class="page active">
+    <div class="container">
+        <h1>💖 Hey Love! 💖</h1>
+        <p>I've prepared a little surprise for you...</p>
+        <button onclick="goToPage('moments')">Open Your Surprise</button>
+    </div>
+</section>
+
+<!-- PAGE 2: MOMENTS TOGETHER -->
+<section id="moments" class="page">
+    <div class="container">
+        <h1>Our Beautiful Moments 🌟</h1>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/200x200?text=Moment1" alt="Moment 1">
+            <img src="https://via.placeholder.com/200x200?text=Moment2" alt="Moment 2">
+            <img src="https://via.placeholder.com/200x200?text=Moment3" alt="Moment 3">
+        </div>
+        <button onclick="goToPage('boxes')">See My Gifts For You 🎁</button>
+    </div>
+</section>
+
+
+<!-- PAGE 3: BOXES OPTIONS -->
+<section id="boxes" class="page active">
+    <div class="container">
+        <h1>Choose Your Surprise Box 📦</h1>
+        <div class="options">
+            <div class="box" onclick="goToPage('letter')">💌 Letter</div>
+            <div class="box" onclick="goToPage('video')">🎥 Video</div>
+            <div class="box" onclick="goToPage('pictures')">👶 Baby Pictures</div>
+        </div>
+
+        <!-- Always-visible Next button -->
+        <button id="nextFromBoxes" onclick="goToPage('valentine')">Next 💘</button>
+    </div>
+</section>
+
+<!-- LETTER OPTION PAGE -->
+<section id="letter" class="page">
+  <div class="container">
+    <h1>Letter From Me ❤️</h1>
+
+    <!-- Envelope -->
+    <div class="envelope-container" id="envelopeContainer">
+      <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="body"></div>
+      </div>
+      <p id="openText">Open Me ✉️</p>
+    </div>
+
+    <!-- Letter content (hidden initially) -->
+    <div class="letter-content" id="letterContent">
+      <p>Dear love,</p>
+      <p>I wanted to tell you how much you mean to me...</p>
+      <p>Every moment with you is precious, and I can't wait to make many more memories together.</p>
+      <p>With all my love, 💖</p>
+    </div>
+
+    <button class="back-btn" onclick="goBackToBoxes()">🔙 Back to Boxes</button>
+  </div>
+</section>
+
+<!-- VIDEO OPTION PAGE -->
+<section id="video" class="page">
+    <div class="container">
+        <h1>Video Surprise 🎬</h1>
+        <video controls>
+            <source src="your-video.mp4" type="video/mp4">
+        </video>
+        <button class="back-btn" onclick="goBackToBoxes()">🔙 Back to Boxes</button>
+    </div>
+</section>
+
+<!-- PICTURES OPTION PAGE -->
+<section id="pictures" class="page">
+    <div class="container">
+        <h1>Our Baby Pictures 🍼</h1>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/200x200?text=Baby1" alt="Baby 1">
+            <img src="https://via.placeholder.com/200x200?text=Baby2" alt="Baby 2">
+        </div>
+        <button class="back-btn" onclick="goBackToBoxes()">🔙 Back to Boxes</button>
+    </div>
+</section>
+
+<!-- PAGE 4: WILL YOU BE MY VALENTINE -->
+<section id="valentine" class="page">
+    <div class="container">
+        <h1>Will You Be My Valentine? 💘</h1>
+        <div class="valentine-buttons">
+            <button id="yesBtn">YES</button>
+            <button id="noBtn">NO</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 4A: GRAND CELEBRATION -->
+<section id="celebration" class="page">
+    <div class="container">
+        <h1>🎉 YAY! You Said YES! 🎉</h1>
+        <p>Let's celebrate our love! 💖</p>
+        <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" alt="Celebration Gif">
+    </div>
+</section>
+
+<!-- PAGE 4B: POUTY RESPONSE -->
+<section id="pouty" class="page">
+    <div class="container">
+        <h1>😢 Oh No! Pouty Me 😢</h1>
+        <div class="pouts">
+            <img src="https://media.giphy.com/media/l0HlPjezGYJ3WzPRu/giphy.gif" alt="Pouty Gif 1">
+            <img src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" alt="Pouty Gif 2">
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
