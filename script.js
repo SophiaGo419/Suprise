@@ -35,14 +35,15 @@ poutyNoBtn.addEventListener('click', () => {
     if (poutyNoClickCount === 2) {
         // Second NO click → Cute angry cat
         poutyCatContainer.innerHTML = `
-            <img src="https://media.giphy.com/media/12XMGIWtrHBl5e/giphy.gif" alt="Cute Angry Cat">
+            <img src="madcute.gif" alt="Cute Angry Cat">
             <p class="pout-text">😾 Okay… now I'm a little mad! But still cute!</p>
         `;
     } else if (poutyNoClickCount === 3) {
         // Third NO click → Dramatic pouty cat + NO flies away
         poutyCatContainer.innerHTML = `
-            <img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif" alt="Dramatic Pouty Cat">
-            <p class="pout-text">😭 This is my last attempt… I’m heartbroken!</p>
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnBocDdsdjB1ZTdsc3lzeDFhdDU4dDRxODlwZjR1OXpiaG1zMXphMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zZbf6UpZslp3nvFjIR/giphy.gif" alt="Dramatic Pouty Cat">
+            <p class="pout-text"> This is my last attempt… please… 🥺</p>
+            <p class="pout-text"> I kicked the No away 😝 HAHAHAHA </p>
         `;
 
         // Fly away NO button

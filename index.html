@@ -11,52 +11,60 @@
 <!-- PAGE 1: HOME -->
 <section id="home" class="page active">
     <div class="container">
-        <h1>💖 Hey Love! 💖</h1>
+        <h1>💖 Hiii, Loveyyy! 💖</h1>
         <p>I've prepared a little surprise for you...</p>
-        <button onclick="goToPage('moments')">Open Your Surprise</button>
+
+        <div class="gif-container">
+      <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjRrYzNnYmRxa2QwMWdqemNqeHhoMmYxcDFmNjlqcG41ZXBwamcwdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/95t6crjjp7Y6sCiZeS/giphy.gif" alt="Cute love gif">
     </div>
+
+        <button onclick="goToPage('moments')">Let's Go!</button>
+    </div>
+
+
 </section>
 
 <!-- PAGE 2: MOMENTS TOGETHER -->
 <section id="moments" class="page">
   <div class="container">
-    <h1>Our Beautiful Moments 🌟</h1>
+    <h1>Describing Our Beautiful Moments 🌟</h1>
+    <h2> (Click dropdown button to reveal something 👀)</h2>
 
     <div class="gallery-grid">
       <div class="moment">
         <img src="first.gif" alt="Moment 1">
         <button class="scrollBtn">⬇️</button>
-        <p class="moment-description" style="display:none;">First time we met 💖</p>
+        <p class="moment-description" style="display:none;">Teasing each other 🤣, at sa pangunguna mo, loveyyy. You can't deny that HAHAHAHA</p>
       </div>
 
       <div class="moment">
         <img src="second.gif" alt="Moment 2">
         <button class="scrollBtn">⬇️</button>
-        <p class="moment-description" style="display:none;">Our first date 🌹</p>
+        <p class="moment-description" style="display:none;">Of course, being sweet and showing our affection towards each other in many ways 🌹</p>
       </div>
 
       <div class="moment">
         <img src="third.png" alt="Moment 3">
         <button class="scrollBtn">⬇️</button>
-        <p class="moment-description" style="display:none;">Laughing together 😂</p>
+        <p class="moment-description" style="display:none;">Having those short yet bubbly calls. We may not even do that much, but when we do, we get all shy naman 😌. Alam na this talaga</p>
       </div>
 
       <div class="moment">
         <img src="fourth.gif" alt="Moment 4">
         <button class="scrollBtn">⬇️</button>
-        <p class="moment-description" style="display:none;">Our special trip 🏞️</p>
+        <p class="moment-description" style="display:none;">Having those deep talks that we both love and me being a sleepyhead, I think you are also na 😏</p>
       </div>
 
       <div class="moment">
         <img src="fifth.gif" alt="Moment 5">
         <button class="scrollBtn">⬇️</button>
-        <p class="moment-description" style="display:none;">Celebrating together 🎉</p>
+        <p class="moment-description" style="display:none;">Comforting and being there for each other, especially during at tough and low times 🤗</p>
       </div>
 
       <div class="moment">
         <img src="sixth.gif" alt="Moment 6">
         <button class="scrollBtn">⬇️</button>
-        <p class="moment-description" style="display:none;">Forever in love 💘</p>
+        <p class="moment-description" style="display:none;">Growing and improving together as our own person 💗</p>
       </div>
     </div>
 
@@ -71,9 +79,9 @@
     <div class="container">
         <h1>Choose Your Surprise Box 📦</h1>
         <div class="options">
-            <div class="box" onclick="goToPage('letter')">💌 Letter</div>
-            <div class="box" onclick="goToPage('video')">🎥 Video</div>
-            <div class="box" onclick="goToPage('pictures')">👶 Baby Pictures</div>
+            <div class="box" onclick="goToPage('letter')">💌 An Interesting Letter</div>
+            <div class="box" onclick="goToPage('video')">🎥 A Song of Our Story</div>
+            <div class="box" onclick="goToPage('pictures')">🥰 Your baby's cutie pictures</div>
         </div>
 
         <!-- Always-visible Next button -->
@@ -84,7 +92,7 @@
 <!-- LETTER OPTION PAGE -->
 <section id="letter" class="page">
   <div class="container">
-    <h1>Letter From Me ❤️</h1>
+    <h1>A short Letter From Me ❤️</h1>
 
     <!-- Envelope -->
     <div class="envelope-container" id="envelopeContainer">
@@ -92,15 +100,15 @@
         <div class="flap"></div>
         <div class="body"></div>
       </div>
-      <p id="openText">Open Me ✉️</p>
+      <p id="openText">Click Me (⁠≧⁠▽⁠≦⁠)</p>
     </div>
 
     <!-- Letter content (hidden initially) -->
     <div class="letter-content" id="letterContent">
-      <p>Dear love,</p>
-      <p>I wanted to tell you how much you mean to me...</p>
-      <p>Every moment with you is precious, and I can't wait to make many more memories together.</p>
-      <p>With all my love, 💖</p>
+      <p>Dear lovey,</p>
+      <p>I know this may not be that grand or anything materialistic that you'll hold dear phsycially, but I want to offer this simple gesture to share this special day of hearts with you . We're on our road to longer months loveyyy, and dare I say we make it into years 🤭. Hindi ako nagbibiro though, and I'm happy that we're growing together into our own unique individuals, while also setting our goals straight ahead. Sulungin man tayo ng mga pagsubok at hindi pagkakaunawaan, naway manatili tayong matatag at hindi kailanman madaling susuko, kahit ano pa mang hamon ang haharapin. Oh, ayan, it still sounds weird when I type straight tagalog HAHAHAHAHA. Seriously, your baby is longing for you from miles away and is missing you in every moment that's spent. I hope you will come to like this small proposal, langga. I love you so MUCHHHH ❤️, mwahhhh 😘</p>
+      <p>Your tiny little broccoli,</p>
+      <p>Bea</p>
     </div>
 
     <button class="back-btn" onclick="goBackToBoxes()">🔙 Back to Boxes</button>
@@ -235,7 +243,7 @@
         <!-- Heart container -->
         <div class="heart-container"></div>
 
-        <p class="celebration-subtext">Let's celebrate our love together! 🌹✨</p>
+        <p class="celebration-subtext">You've signed up to be mine forever. No return and refund! 🌹✨</p>
     </div>
 </section>
 
@@ -246,8 +254,8 @@
 
         <!-- First pleading cat GIF already visible -->
         <div class="pouty-cat" id="poutyCatContainer">
-            <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif" alt="Pouty Pleading Cat">
-            <p class="pout-text">Please… reconsider? I brought my cutest face... 🐾🥺</p>
+            <img src="suprised.gif" alt="Pouty Pleading Cat">
+            <p class="pout-text">Whattt? Did I just see you you click No</p>
         </div>
 
         <div class="pout-buttons">
