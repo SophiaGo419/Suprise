@@ -828,3 +828,7 @@ button.back-btn {
     width: 100vw;
     height: 100vh;
 }
+
+.flip-card-front {
+    background-color: #ffe0e6; /* soft pink as placeholder */
+}

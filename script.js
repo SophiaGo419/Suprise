@@ -239,6 +239,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Select all flip cards
+const flipCards = document.querySelectorAll('.flip-card');
+
+flipCards.forEach(card => {
+    const img = card.querySelector('.flip-card-front img');
+
+    // Wait for image to load
+    img.addEventListener('load', () => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+            checkAllFlipped(); // if you have confetti/message
+        });
+    });
+
+    // If image is cached and already loaded
+    if (img.complete) {
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+            checkAllFlipped();
+        });
+    }
+});
+
 // Function to show message with floating hearts
 function showLoveMessage() {
     loveMessage.style.opacity = '1';
