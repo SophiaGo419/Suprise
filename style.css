@@ -920,26 +920,6 @@ button.back-btn {
     white-space: nowrap; /* keep in one line */
 }
 
-/* Tablet / small screens */
-@media (max-width: 700px) {
-    #celebration .celebration-text {
-        font-size: 1.5rem;
-    }
-}
-
-/* Mobile phones */
-@media (max-width: 500px) {
-    #celebration .celebration-text {
-        font-size: 1.0rem; /* shrink to fit one line */
-    }
-}
-
-/* Very small phones */
-@media (max-width: 350px) {
-    #celebration .celebration-text {
-        font-size: 1.0rem;
-    }
-}
 
 .gallery-grid {
     display: grid;
