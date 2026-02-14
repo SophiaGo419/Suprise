@@ -151,13 +151,135 @@ function goToPage(pageId) {
 }
 
 // Flip each card individually on click
-const flipCards = document.querySelectorAll('.flip-card');
+// Select all flip cards in the pictures page
+document.addEventListener('DOMContentLoaded', () => {
+    const flipCards = document.querySelectorAll('#pictures .flip-card');
+    let flippedCount = 0;
+    const picturesHeartContainer = document.querySelector('.pictures-heart-container');
 
-flipCards.forEach(card => {
-    card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
+    // Love message
+    const picturesContainer = document.querySelector('#pictures .container');
+    const loveMessage = document.createElement('div');
+    loveMessage.textContent = 'I Love You So MUCH ❤️!';
+    loveMessage.style.position = 'fixed';
+    loveMessage.style.top = '50%';
+    loveMessage.style.left = '50%';
+    loveMessage.style.transform = 'translate(-50%, -50%)';
+    loveMessage.style.fontSize = '3rem';
+    loveMessage.style.fontWeight = 'bold';
+    loveMessage.style.color = '#ff2d95';
+    loveMessage.style.textShadow = '0 0 20px #ffb6b9, 0 0 30px #ff6b81';
+    loveMessage.style.zIndex = '10000';
+    loveMessage.style.opacity = '0';
+    loveMessage.style.transition = 'opacity 0.3s ease';
+    picturesContainer.appendChild(loveMessage);
+
+    flipCards.forEach(card => {
+        card.addEventListener('click', () => {
+            if (!card.classList.contains('flipped')) {
+                card.classList.add('flipped');
+                flippedCount++;
+                if (flippedCount === flipCards.length) {
+                    showLoveMessage();
+                }
+            }
+        });
     });
+
+    function showLoveMessage() {
+        loveMessage.style.opacity = '1';
+        launchGrandHeartsFromMessage(200); // explode from message
+
+        setTimeout(() => {
+            loveMessage.style.opacity = '0';
+        }, 3000);
+    }
+
+    function launchGrandHeartsFromMessage(count) {
+        const rect = loveMessage.getBoundingClientRect();
+        const originX = rect.left + rect.width / 2;
+        const originY = rect.top + rect.height / 2;
+
+        for (let i = 0; i < count; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = '❤️';
+            heart.style.left = `${originX}px`;
+            heart.style.top = `${originY}px`;
+            heart.style.fontSize = `${10 + Math.random() * 25}px`;
+
+            picturesHeartContainer.appendChild(heart);
+
+            // Random velocities
+            const velocityX = (Math.random() - 0.5) * 10;
+            const velocityY = - (5 + Math.random() * 10);
+            const rotation = Math.random() * 360;
+            const rotationSpeed = (Math.random() - 0.5) * 20;
+
+            let x = 0, y = 0, r = rotation, opacity = 1;
+
+            const animate = () => {
+                x += velocityX;
+                y += velocityY;
+                r += rotationSpeed;
+                opacity -= 0.02;
+
+                heart.style.transform = `translate(${x}px, ${y}px) rotate(${r}deg)`;
+                heart.style.opacity = opacity;
+
+                if (opacity > 0) {
+                    requestAnimationFrame(animate);
+                } else {
+                    heart.remove();
+                }
+            };
+
+            requestAnimationFrame(animate);
+        }
+    }
 });
+
+// Function to show message with floating hearts
+function showLoveMessage() {
+    loveMessage.style.opacity = '1';
+    createHearts();
+
+    // Hide after 3 seconds
+    setTimeout(() => {
+        loveMessage.style.opacity = '0';
+    }, 3000);
+}
+
+// Function to create floating hearts
+function createHearts() {
+    const heartContainer = document.querySelector('.heart-container') || createHeartContainer();
+
+    for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = '💖';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.top = Math.random() * window.innerHeight + 'px';
+        heart.style.fontSize = `${20 + Math.random() * 20}px`;
+        heart.style.setProperty('--x', `${Math.random() * 200 - 100}px`);
+        heart.style.setProperty('--y', `${- (50 + Math.random() * 300)}px`);
+
+        heartContainer.appendChild(heart);
+
+        // Remove heart after animation
+        heart.addEventListener('animationend', () => {
+            heart.remove();
+        });
+    }
+}
+
+// Ensure heart container exists
+function createHeartContainer() {
+    const container = document.createElement('div');
+    container.className = 'heart-container';
+    document.body.appendChild(container);
+    return container;
+}
 
 // Create confetti hearts
 const heartContainer = document.querySelector('.heart-container');

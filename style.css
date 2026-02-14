@@ -601,3 +601,22 @@ body, .page {
   max-width: 100%;
   border-radius: 15px;
 }
+
+.pictures-heart-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 9999;
+}
+
+.pictures-heart-container .heart {
+    position: absolute;
+    font-size: 2rem;
+    pointer-events: none;
+    opacity: 1;
+    will-change: transform, opacity;
+}
