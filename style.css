@@ -166,7 +166,7 @@ button:hover {
 /* Letter container adjustments */
 .letter-content {
     width: 90%;          /* slim down container on all devices */
-    max-width: 380px;    /* ensure it fits mobile screens */
+    max-width: 350px;    /* ensure it fits mobile screens */
     margin: 0 auto;      /* center it */
     padding: 15px;       /* enough padding for readability */
     font-size: 1rem;     /* slightly smaller on mobile */
@@ -555,7 +555,7 @@ body, .page {
 }
 
 .celebration-text {
-    font-size: 2rem;
+    font-size: 3rem;
     color: #ff2d95;
     margin-bottom: 20px;
     text-shadow: 0 0 10px #ffb6b9, 0 0 25px #ff6b81;
@@ -922,21 +922,21 @@ button.back-btn {
 /* Tablet / small screens */
 @media (max-width: 700px) {
     #celebration .celebration-text {
-        font-size: 2.2rem;
+        font-size: 1.5rem;
     }
 }
 
 /* Mobile phones */
 @media (max-width: 500px) {
     #celebration .celebration-text {
-        font-size: 1.8rem; /* shrink to fit one line */
+        font-size: 1.0rem; /* shrink to fit one line */
     }
 }
 
 /* Very small phones */
 @media (max-width: 350px) {
     #celebration .celebration-text {
-        font-size: 1.5rem;
+        font-size: 1.0rem;
     }
 }
 
