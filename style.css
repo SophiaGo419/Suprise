@@ -790,12 +790,23 @@ button.back-btn {
     }
 }
 
+/* Flip gallery: 2 columns x 3 rows by default */
 .flip-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(3, auto);   /* 3 rows for 6 cards */
+    gap: 20px;
+    justify-items: center;
+    margin: 20px 0;
 }
 
+/* Small screens: stack in 1 column */
+@media (max-width: 500px) {
+    .flip-gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}
 .flip-card {
     width: 100%;
     max-width: 160px;
@@ -815,7 +826,7 @@ button.back-btn {
 
 .letter-content {
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     margin: 0 auto;
     padding: 15px;
 }
@@ -837,40 +848,38 @@ button.back-btn {
     background-color: #ffe0e6; /* soft pink as placeholder */
 }
 
-/* Page 2 moments gallery - desktop: 3x2 */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-items: center;
-    margin-bottom: 20px;
+.moment {
+    text-align: center;
+    display: flex;
+    flex-direction: column;  /* stack items vertically */
+    align-items: center;
 }
 
-/* Images inside moments */
 .moment img {
-    width: 100%;
-    max-width: 180px;
-    height: auto;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
     border-radius: 15px;
+    margin-bottom: 10px;  /* space below image */
 }
 
-/* Mobile: 2 columns × 3 rows */
-@media (max-width: 700px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
+.scrollBtn {
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background: #ff6b81;
+    color: white;
+    margin-bottom: 10px;  /* space below button before description */
 }
 
-@media (max-width: 500px) {
-    .gallery-grid {
-        grid-template-columns: 1fr; /* stack single column for very small phones */
-        gap: 10px;
-    }
-
-    .moment img {
-        max-width: 100%;
-    }
+.moment-description {
+    font-size: 1rem;
+    color: #333;
+    display: none;  /* revealed when button clicked */
+    margin-top: 5px;
+    text-align: center;
 }
 
 /* Picture option confetti message */
@@ -928,5 +937,22 @@ button.back-btn {
 @media (max-width: 350px) {
     #celebration .celebration-text {
         font-size: 1.5rem;
+    }
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(3, auto);   /* 3 rows */
+    gap: 20px;
+    justify-items: center;
+    margin-bottom: 20px;
+}
+
+/* For very small screens, stack in 1 column */
+@media (max-width: 500px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
     }
 }
