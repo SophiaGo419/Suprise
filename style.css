@@ -163,17 +163,21 @@ button:hover {
     z-index: 1;
 }
 
+/* Letter container adjustments */
 .letter-content {
-    display: none;
-    margin-top: 20px;
-    text-align: justify;
-    padding: 20px;
-    background: #fff8e7;
-    border: 2px solid #ff6b81;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    animation: unfold 2s forwards;
+    width: 90%;          /* slim down container on all devices */
+    max-width: 380px;    /* ensure it fits mobile screens */
+    margin: 0 auto;      /* center it */
+    padding: 15px;       /* enough padding for readability */
+    font-size: 1rem;     /* slightly smaller on mobile */
+    line-height: 1.4;
+}
+
+/* Back button spacing for mobile */
+#letter .back-btn {
+    margin-top: 20px;    /* good distance from text */
+    padding: 10px 20px;  /* smaller but still clickable */
+    font-size: 0.95rem;
 }
 
 /* Animation for unfolding letter */
@@ -831,4 +835,98 @@ button.back-btn {
 
 .flip-card-front {
     background-color: #ffe0e6; /* soft pink as placeholder */
+}
+
+/* Page 2 moments gallery - desktop: 3x2 */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    margin-bottom: 20px;
+}
+
+/* Images inside moments */
+.moment img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Mobile: 2 columns × 3 rows */
+@media (max-width: 700px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* stack single column for very small phones */
+        gap: 10px;
+    }
+
+    .moment img {
+        max-width: 100%;
+    }
+}
+
+/* Picture option confetti message */
+#pictureMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;   /* default desktop size */
+    color: #ff2d95;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ffb6b9, 0 0 25px #ff6b81;
+    z-index: 1000;
+    white-space: nowrap; /* keep text in one line */
+}
+
+/* Smaller devices */
+@media (max-width: 500px) {
+    #pictureMessage {
+        font-size: 1.5rem;  /* shrink to fit one line */
+        top: 45%;           /* adjust vertical position */
+    }
+}
+
+@media (max-width: 350px) {
+    #pictureMessage {
+        font-size: 1.2rem;  /* further shrink for very small phones */
+    }
+}
+
+/* Celebration page H1 */
+#celebration .celebration-text {
+    font-size: 3rem; /* default desktop size */
+    color: #ff2d95;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ffb6b9, 0 0 25px #ff6b81;
+    white-space: nowrap; /* keep in one line */
+}
+
+/* Tablet / small screens */
+@media (max-width: 700px) {
+    #celebration .celebration-text {
+        font-size: 2.2rem;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 500px) {
+    #celebration .celebration-text {
+        font-size: 1.8rem; /* shrink to fit one line */
+    }
+}
+
+/* Very small phones */
+@media (max-width: 350px) {
+    #celebration .celebration-text {
+        font-size: 1.5rem;
+    }
 }

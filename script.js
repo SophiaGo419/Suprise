@@ -152,115 +152,67 @@ function goToPage(pageId) {
 
 // Flip each card individually on click
 // Select all flip cards in the pictures page
-document.addEventListener('DOMContentLoaded', () => {
-    const flipCards = document.querySelectorAll('#pictures .flip-card');
-    let flippedCount = 0;
-    const picturesHeartContainer = document.querySelector('.pictures-heart-container');
-
-    // Love message
-    const picturesContainer = document.querySelector('#pictures .container');
-    const loveMessage = document.createElement('div');
-    loveMessage.textContent = 'I Love You So MUCH ❤️!';
-    loveMessage.style.position = 'fixed';
-    loveMessage.style.top = '50%';
-    loveMessage.style.left = '50%';
-    loveMessage.style.transform = 'translate(-50%, -50%)';
-    loveMessage.style.fontSize = '3rem';
-    loveMessage.style.fontWeight = 'bold';
-    loveMessage.style.color = '#ff2d95';
-    loveMessage.style.textShadow = '0 0 20px #ffb6b9, 0 0 30px #ff6b81';
-    loveMessage.style.zIndex = '10000';
-    loveMessage.style.opacity = '0';
-    loveMessage.style.transition = 'opacity 0.3s ease';
-    picturesContainer.appendChild(loveMessage);
-
-    flipCards.forEach(card => {
-        card.addEventListener('click', () => {
-            if (!card.classList.contains('flipped')) {
-                card.classList.add('flipped');
-                flippedCount++;
-                if (flippedCount === flipCards.length) {
-                    showLoveMessage();
-                }
-            }
-        });
-    });
-
-    function showLoveMessage() {
-        loveMessage.style.opacity = '1';
-        launchGrandHeartsFromMessage(200); // explode from message
-
-        setTimeout(() => {
-            loveMessage.style.opacity = '0';
-        }, 3000);
-    }
-
-    function launchGrandHeartsFromMessage(count) {
-        const rect = loveMessage.getBoundingClientRect();
-        const originX = rect.left + rect.width / 2;
-        const originY = rect.top + rect.height / 2;
-
-        for (let i = 0; i < count; i++) {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.textContent = '❤️';
-            heart.style.left = `${originX}px`;
-            heart.style.top = `${originY}px`;
-            heart.style.fontSize = `${10 + Math.random() * 25}px`;
-
-            picturesHeartContainer.appendChild(heart);
-
-            // Random velocities
-            const velocityX = (Math.random() - 0.5) * 10;
-            const velocityY = - (5 + Math.random() * 10);
-            const rotation = Math.random() * 360;
-            const rotationSpeed = (Math.random() - 0.5) * 20;
-
-            let x = 0, y = 0, r = rotation, opacity = 1;
-
-            const animate = () => {
-                x += velocityX;
-                y += velocityY;
-                r += rotationSpeed;
-                opacity -= 0.02;
-
-                heart.style.transform = `translate(${x}px, ${y}px) rotate(${r}deg)`;
-                heart.style.opacity = opacity;
-
-                if (opacity > 0) {
-                    requestAnimationFrame(animate);
-                } else {
-                    heart.remove();
-                }
-            };
-
-            requestAnimationFrame(animate);
-        }
-    }
-});
-
 // Select all flip cards
-const flipCards = document.querySelectorAll('.flip-card');
+const flipCards = document.querySelectorAll('#pictures .flip-card');
 
-flipCards.forEach(card => {
-    const img = card.querySelector('.flip-card-front img');
+// Function to check if all cards are flipped
+function checkAllFlipped() {
+    const allFlipped = [...flipCards].every(card => card.classList.contains('flipped'));
+    if (allFlipped) {
+        showPictureMessage();
+        launchPictureConfetti();
+    }
+}
 
-    // Wait for image to load
-    img.addEventListener('load', () => {
-        card.addEventListener('click', () => {
-            card.classList.toggle('flipped');
-            checkAllFlipped(); // if you have confetti/message
-        });
-    });
+// Function to show the I Love You message
+function showPictureMessage() {
+    // Prevent multiple messages
+    if (document.getElementById('pictureMessage')) return;
 
-    // If image is cached and already loaded
-    if (img.complete) {
-        card.addEventListener('click', () => {
-            card.classList.toggle('flipped');
-            checkAllFlipped();
+    const message = document.createElement('div');
+    message.id = 'pictureMessage';
+    message.innerText = "I Love You So MUCH 💗!";
+
+    // Append to the container so it's visible
+    document.querySelector('#pictures .container').appendChild(message);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        message.remove();
+    }, 3000);
+}
+
+// Function to launch confetti
+function launchPictureConfetti() {
+    const confettiContainer = document.getElementById('pictureConfettiContainer');
+
+    for (let i = 0; i < 50; i++) { // 50 hearts for grand effect
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = Math.random() * 100 + 'vh';
+        heart.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+        heart.innerText = '💗';
+        heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+        heart.style.animationDelay = (Math.random() * 0.5) + 's';
+        confettiContainer.appendChild(heart);
+
+        // Remove heart after animation
+        heart.addEventListener('animationend', () => {
+            heart.remove();
         });
     }
+}
+
+// Add click listeners to flip cards
+flipCards.forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+        checkAllFlipped();
+    });
 });
+
+
 
 // Function to show message with floating hearts
 function showLoveMessage() {
@@ -280,7 +232,7 @@ function createHearts() {
     for (let i = 0; i < 20; i++) {
         const heart = document.createElement('div');
         heart.className = 'heart';
-        heart.textContent = '💖';
+        heart.textContent = '💗';
         heart.style.left = Math.random() * window.innerWidth + 'px';
         heart.style.top = Math.random() * window.innerHeight + 'px';
         heart.style.fontSize = `${20 + Math.random() * 20}px`;
