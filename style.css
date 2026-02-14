@@ -166,6 +166,7 @@ button:hover {
 /* Letter container adjustments */
 .letter-content {
     width: 90%;          /* slim down container on all devices */
+    text-align: justify;
     max-width: 350px;    /* ensure it fits mobile screens */
     margin: 0 auto;      /* center it */
     padding: 15px;       /* enough padding for readability */
