@@ -374,6 +374,11 @@ button:hover {
     border-radius: 20px;
 }
 
+.valentine-gif .gif-text1 {
+    font-size: 10px
+}
+
+
 .gif-text {
     margin-top: 10px;
     font-size: 1.15rem;
