@@ -620,3 +620,211 @@ body, .page {
     opacity: 1;
     will-change: transform, opacity;
 }
+
+/* Boxes and Back buttons same gradient as Next */
+#boxes .box,
+#boxes .back-btn {
+    background: linear-gradient(45deg, #ff6b81, #ffb6b9);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 107, 129, 0.6);
+}
+
+#boxes .box:hover,
+#boxes .back-btn:hover,
+#boxes #nextFromBoxes:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 0 30px rgba(255, 107, 129, 0.9);
+}
+
+/* Maintain existing Next button animation */
+#boxes #nextFromBoxes {
+    animation: pulse 1.5s infinite;
+    border-radius: 50px;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+}
+
+/* Make all back buttons same style as Next button */
+.back-btn {
+    background: linear-gradient(45deg, #ff6b81, #ffb6b9); /* same gradient as #nextFromBoxes */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(255, 107, 129, 0.6);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect same as Next button */
+.back-btn:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 0 30px rgba(255, 107, 129, 0.9);
+}
+
+/* Page 4 back button smaller */
+#valentine .back-btn {
+    padding: 10px 25px;        /* smaller padding */
+    font-size: 1rem;           /* smaller text */
+    border-radius: 40px;       /* slightly smaller rounding */
+    box-shadow: 0 0 15px rgba(255, 107, 129, 0.5); /* lighter shadow */
+    margin-top: 15px;
+}
+
+/* Hover effect remains consistent */
+#valentine .back-btn:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 0 25px rgba(255, 107, 129, 0.8);
+}
+
+/* Page 3 back button smaller */
+#boxes .back-btn {
+    padding: 10px 25px;        /* smaller padding */
+    font-size: 1rem;           /* smaller text */
+    border-radius: 40px;       /* slightly smaller rounding */
+    box-shadow: 0 0 15px rgba(255, 107, 129, 0.5); /* lighter shadow */
+    margin-top: 15px;
+}
+
+/* Hover effect remains consistent with Next button */
+#boxes .back-btn:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 0 25px rgba(255, 107, 129, 0.8);
+}
+
+/* Back buttons in Letter, Video, Pictures pages */
+#letter .back-btn,
+#video .back-btn,
+#pictures .back-btn {
+    background: linear-gradient(45deg, #ff6b81, #ffb6b9); /* same as Next button */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    padding: 10px 25px;       /* slightly smaller than Next button */
+    font-size: 1rem;
+    margin-top: 15px;
+    box-shadow: 0 0 15px rgba(255, 107, 129, 0.5);
+    transition: all 0.3s ease;
+}
+
+#letter .back-btn:hover,
+#video .back-btn:hover,
+#pictures .back-btn:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 0 25px rgba(255, 107, 129, 0.8);
+}
+
+/* Letter page back button spacing */
+#letter .back-btn {
+    background: linear-gradient(45deg, #ff6b81, #ffb6b9); /* same as Next button */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    padding: 10px 25px;       /* smaller size than Next button */
+    font-size: 1rem;
+    margin-top: 30px;         /* increased distance from letter text */
+    box-shadow: 0 0 15px rgba(255, 107, 129, 0.5);
+    transition: all 0.3s ease;
+}
+
+#letter .back-btn:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 0 25px rgba(255, 107, 129, 0.8);
+}
+
+/* Prevent horizontal overflow on small screens */
+body, html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 95%;
+    max-width: 600px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Next and Back buttons responsive */
+button#nextFromBoxes,
+button.back-btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+    border-radius: 50px;
+}
+
+@media (max-width: 500px) {
+    button#nextFromBoxes,
+    button.back-btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+}
+
+.flip-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.flip-card {
+    width: 100%;
+    max-width: 160px;
+    height: 160px;
+}
+
+.gif-container img,
+.valentine-gif img,
+.pouty-cat img,
+.video-wrapper video,
+.bouquet img {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.letter-content {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+#letter .back-btn {
+    margin-top: 25px; /* enough spacing from letter */
+}
+
+#pictureConfetti .heart {
+    font-size: 1.2rem; /* smaller hearts on mobile */
+}
+
+.celebration-container, .heart-container {
+    width: 100vw;
+    height: 100vh;
+}
