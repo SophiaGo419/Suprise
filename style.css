@@ -557,7 +557,7 @@ body, .page {
 }
 
 .celebration-text {
-    font-size: 3rem;
+    font-size: 2rem;
     color: #ff2d95;
     margin-bottom: 20px;
     text-shadow: 0 0 10px #ffb6b9, 0 0 25px #ff6b81;
@@ -912,14 +912,6 @@ button.back-btn {
     }
 }
 
-/* Celebration page H1 */
-#celebration .celebration-text {
-    font-size: 3rem; /* default desktop size */
-    color: #ff2d95;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px #ffb6b9, 0 0 25px #ff6b81;
-    white-space: nowrap; /* keep in one line */
-}
 
 
 .gallery-grid {
